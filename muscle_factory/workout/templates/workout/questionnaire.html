@@ -1,0 +1,76 @@
+{% extends "workout/base.html" %}
+{% block title %}پرسشنامه{% endblock %}
+
+{% block content %}
+<section class="row justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+    <div class="card bg-card border-0 shadow-sm">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="mb-0 text-gold">پرسشنامه</h4>
+          <small class="text-ice-muted">مرحله ۱ از ۳</small>
+        </div>
+
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+
+          <div class="row g-2">
+            <div class="col-12 col-sm-6">
+              <label class="form-label text-ice">نام</label>
+              {{ form.first_name }}
+              {% if form.first_name.errors %}<div class="text-danger small mt-1">{{ form.first_name.errors|striptags }}</div>{% endif %}
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <label class="form-label text-ice">نام خانوادگی</label>
+              {{ form.last_name }}
+              {% if form.last_name.errors %}<div class="text-danger small mt-1">{{ form.last_name.errors|striptags }}</div>{% endif %}
+            </div>
+
+            <div class="col-6 col-sm-4">
+              <label class="form-label text-ice">وزن (kg)</label>
+              {{ form.weight }}
+              {% if form.weight.errors %}<div class="text-danger small mt-1">{{ form.weight.errors|striptags }}</div>{% endif %}
+            </div>
+
+            <div class="col-6 col-sm-4">
+              <label class="form-label text-ice">قد (cm)</label>
+              {{ form.height }}
+              {% if form.height.errors %}<div class="text-danger small mt-1">{{ form.height.errors|striptags }}</div>{% endif %}
+            </div>
+
+            <div class="col-6 col-sm-4">
+              <label class="form-label text-ice">سن</label>
+              {{ form.age }}
+              {% if form.age.errors %}<div class="text-danger small mt-1">{{ form.age.errors|striptags }}</div>{% endif %}
+            </div>
+          </div>
+
+          <hr class="my-3" />
+
+          <div class="mb-3">
+            <label class="form-label text-ice">میزان فعالیت</label>
+            {{ form.activity }}
+            {% if form.activity.errors %}<div class="text-danger small mt-1">{{ form.activity.errors|striptags }}</div>{% endif %}
+            <div class="form-text text-ice-muted small">یک مورد را انتخاب کن — برای برنامه‌ریزی شدت تمرین مهم است.</div>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label text-ice">بیماری‌ها (در صورت وجود)</label>
+            <div class="border rounded p-2" style="background: rgba(255,255,255,0.01);">
+              {{ form.diseases }}
+            </div>
+            <div class="form-text text-ice-muted small">اگر هیچکدام را نداری خالی بگذار.</div>
+          </div>
+
+          <div class="d-flex justify-content-between mt-4">
+            <a href="{% url 'workout:home' %}" class="btn btn-outline-light">بازگشت</a>
+            <button type="submit" class="btn btn-gold">محاسبه و ادامه</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
