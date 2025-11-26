@@ -1,0 +1,57 @@
+{% extends "workout/base.html" %}
+{% block title %}خانه{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column min-vh-100">
+
+  <!-- بخش هوم -->
+  <section class="flex-grow-1 d-flex flex-column justify-content-center align-items-center text-center py-5">
+    <div class="w-100" style="max-width: 980px;">
+      <h1 class="display-5 fw-bold text-gold mb-3">Muscle Factory</h1>
+      <p class="lead text-ice-muted mb-4">
+        برنامه تمرینی اختصاصی، مبتنی بر قد، وزن و سطح فعالیت شما — سریع، ساده و موبایل‌محور.
+      </p>
+
+      <!-- دکمه دریافت برنامه -->
+      <a href="{% url 'workout:questionnaire' %}" class="btn btn-gold btn-lg mb-4">دریافت برنامه</a>
+
+      <div class="small text-ice-muted mb-5">
+      </div>
+
+      <!-- کارت‌های ویژگی‌ها -->
+      <div class="row row-cols-1 row-cols-md-2 g-3">
+        <div class="col">
+          <div class="card h-100 p-3 bg-card">
+            <div class="d-flex align-items-start gap-2">
+              <div class="icon-box rounded-2 d-flex align-items-center justify-content-center">🏋️‍♂️</div>
+              <div>
+                <h5 class="mb-1 text-gold">برنامه تمرینی اختصاصی</h5>
+                <p class="mb-0 small text-ice-muted">
+                  برنامه بر اساس BMI و سطح فعالیت شما ساخته می‌شود.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100 p-3 bg-card">
+            <div class="d-flex align-items-start gap-2">
+              <div class="icon-box rounded-2 d-flex align-items-center justify-content-center">⚡</div>
+              <div>
+                <h5 class="mb-1 text-gold">سریع و آسان</h5>
+                <p class="mb-0 small text-ice-muted">
+                  فقط چند فیلد — و برنامهٔ شما آماده است.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+</div>
+{% endblock %}
